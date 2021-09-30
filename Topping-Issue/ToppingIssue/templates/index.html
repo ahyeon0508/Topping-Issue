@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>톺핑 있슈(Topping Issue)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </head>
-<body>
 
+<body>
+    <div class="container">
+        <div class="title">
+            <h1 class="main-title">Topping Issue</h1>
+        </div>
+        <div class="select_box">
+            <div class="main_category_box">
+                <label for="category">대분류</label>
+                <select id="main-category">
+                    <option value="학과">학과</option>
+                    <option value="테마">테마</option>
+                </select>
+            </div>
+            <div class="sub_category_box">
+                <label for="category">중분류</label>
+                <select id="sub-category">
+                    <option value="">데이터 받기</option>
+                </select>
+            </div>
+            <div class="search">
+                <button type="button" class="search-button">검색</button>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
