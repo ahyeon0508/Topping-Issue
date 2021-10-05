@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+.container{
+    display: grid;
+    margin-top: 50px;
+}
+
+/* title */
+.main-title{
+    font-size: 60px;
+    color: #9EC8C8;
+    text-align: center;
+    text-shadow: 2px 2px 2px #999898;
+    font-family: 'Gowun Batang', serif;
+    height: 150px;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+}
+
+/* news-title */
+.content{
+    height: 300px;
+}
+
+.news-title{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.main-news{
+    font-size: 20px;
+}
+
+.sub-news{
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* news-reaction-chart */
+.news-reaction-chart{
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+}
+
+.naver-chart{
+    height: 200px;
+}
+
+.daum-chart{
+    height: 200px;
+}
