@@ -39,6 +39,12 @@
     margin-top: 5px;
 }
 
+/* term-topic-chart */
+#term-topic-chart{
+    height: 300px;
+    margin-bottom: 100px;
+}
+
 /* news-reaction-chart */
 .news-reaction-chart{
     display: grid;

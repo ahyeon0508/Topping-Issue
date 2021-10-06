@@ -1,3 +1,75 @@
+// 기간별 토픽 차트
+$(document).ready(function () {
+  new Chart(document.getElementById("term-topic-chart"), {
+    type: 'line',
+    data: {
+			labels: [
+				'data1',
+				'',
+				'',
+				'data4',
+				'',
+				'',
+				'data7'
+			],
+			datasets: [{
+				label: 'My First dataset',
+				backgroundColor: 'rgba(75, 192, 192, 1)',
+				borderColor: 'rgba(75, 192, 192, 1)',
+				fill: false,
+        pointRadius: 1,
+        lineTension: 0.5,  
+				data: [
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50)
+				],
+			},
+      {
+				label: 'My Second dataset',
+				backgroundColor: 'rgba(255, 99, 132, 1)',
+				borderColor: 'rgba(255, 99, 132, 1)',
+				fill: false,
+        pointRadius: 1,
+        lineTension: 0.5,
+        data: [
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50)
+				],
+			}]
+		},
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins:{
+        legend: {
+          display: false
+        },
+      },
+      scales: {
+        x:{
+          grid: {
+            display: false,
+          },
+        },
+        y: {
+          display: false,
+        }
+      }
+    }
+  });
+});
+
+// N사, D사 감성 분석 차트
 var section = document.getElementsByClassName("news-reaction-chart");
 
 $(document).ready(function () {

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="{{ url_for('static', filename='js/news.js') }}"></script>
 
 </head>
 <body>
@@ -22,6 +21,9 @@
             비율 선택
             <button type="button" class="search-button">검색</button>
         </div> -->
+        <div class="term-topic">
+            <canvas id="term-topic-chart"></canvas>
+        </div>
         {% for main_title, sub_title in newsData.items() %}
         <div class="content">
             <div class="news-title">
@@ -48,5 +50,7 @@
     <script>
         console.log({{ sentimentData | tojson | safe }})
     </script>
+    <script src="{{ url_for('static', filename='js/news.js') }}"></script>
+
 </body>
 </html>
