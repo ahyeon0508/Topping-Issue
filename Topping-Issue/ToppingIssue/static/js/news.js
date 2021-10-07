@@ -1,3 +1,12 @@
+// user-setting
+$(document).ready(function (){
+	$(".setting-button").click(function (){
+  	$("#date-setting").toggle();
+    $("#interest-setting").toggle();
+    $("#complete-button").toggle();
+  });
+});
+
 // 기간별 토픽 차트
 $(document).ready(function () {
   new Chart(document.getElementById("term-topic-chart"), {

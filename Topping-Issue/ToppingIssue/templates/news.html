@@ -9,18 +9,65 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/bars-1to10.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bars-1to10.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.barrating.min.js') }}"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('.interest-prop-ap').barrating({
+            theme: 'bars-1to10',
+            onSelect: function(value, text, event){
+                console.log(value)
+            }
+        });
+        $('.interest-prop-cp').barrating({
+            theme: 'bars-1to10',
+            onSelect: function(value, text, event){
+                console.log(value)
+            }
+        });
+    });
+    </script>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1 class="main-title">Topping Issue</h1>
         </div>
-        <!-- <div class="search-setting">
-            날짜 선택
-            비율 선택
-            <button type="button" class="search-button">검색</button>
-        </div> -->
+        <button class="setting-button">기사 설정</button>
+        <div class="search-setting">
+            <div id="date-setting">
+                <span>* 조회 기간을 선택해주세요 *</span>
+                <div class="date">
+                    <span>시작일자 : </span>
+                    <input type="date" id="start-date">
+                </div>
+                <div class="date">
+                    <span>종료일자 : </span>
+                    <input type="date" id="end-date">
+                </div>
+            </div>
+            <div id="interest-setting">
+                <p>* 가중치를 선택해주세요 *</p>
+                <span>언급량</span>
+                <select class="interest-prop-ap">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <span>반응</span>
+                <select class="interest-prop-cp">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="setting-button" id="complete-button">완료</button>
+            </div>
+        </div>
         <div class="term-topic">
             <canvas id="term-topic-chart"></canvas>
         </div>
