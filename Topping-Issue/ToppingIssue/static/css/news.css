@@ -68,7 +68,7 @@ button.setting-button:focus{
 
 .content{
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 /* news-title */
@@ -90,9 +90,12 @@ button.setting-button:focus{
 }
 
 /* term-topic-chart */
+.term-topic{
+    margin-bottom: 100px;
+}
+
 #term-topic-chart{
     height: 300px;
-    margin-bottom: 100px;
 }
 
 /* news-reaction-chart */

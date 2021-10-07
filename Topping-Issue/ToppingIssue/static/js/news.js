@@ -26,8 +26,7 @@ $(document).ready(function () {
 				backgroundColor: 'rgba(75, 192, 192, 1)',
 				borderColor: 'rgba(75, 192, 192, 1)',
 				fill: false,
-        pointRadius: 1,
-        lineTension: 0.5,  
+        pointRadius: 3,
 				data: [
 					Math.floor(Math.random() * 50),
 					Math.floor(Math.random() * 50),
@@ -43,8 +42,7 @@ $(document).ready(function () {
 				backgroundColor: 'rgba(255, 99, 132, 1)',
 				borderColor: 'rgba(255, 99, 132, 1)',
 				fill: false,
-        pointRadius: 1,
-        lineTension: 0.5,
+        pointRadius: 3,
         data: [
 					Math.floor(Math.random() * 50),
 					Math.floor(Math.random() * 50),
@@ -59,20 +57,21 @@ $(document).ready(function () {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins:{
-        legend: {
-          display: false
-        },
+      legend: {
+        display: false
       },
       scales: {
-        x:{
-          grid: {
-            display: false,
+        xAxes: [{
+          ticks: {
+            fontSize: 11
           },
-        },
-        y: {
-          display: false,
-        }
+          gridLines: {
+            display:false,
+          }
+        }],
+        yAxes: [{
+          display: false
+        }]
       }
     }
   });
@@ -86,6 +85,7 @@ $(document).ready(function () {
     new Chart(document.getElementsByClassName("naver-chart")[i], {
       type: 'doughnut',
       data: {
+        labels: ['긍정', '부정', '중립'],
         datasets: [{
           backgroundColor: ["#DEF2F3", "#F1B6AF","#EAE6E6"],
           data: [2478,5267,734]
@@ -94,12 +94,28 @@ $(document).ready(function () {
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        legend: {
+          display: false
+        },
+        plugins: {
+          doughnutlabel: {
+            labels: [
+              {
+                text: 'N사',
+                font: {
+                  size: '16',
+                },
+              },
+            ],
+          },
+        },
       }
     });
 
     new Chart(document.getElementsByClassName("daum-chart")[i], {
         type: 'doughnut',
         data: {
+          labels: ['긍정', '부정', '중립'],
           datasets: [{
             backgroundColor: ["#DEF2F3", "#F1B6AF","#EAE6E6"],
             data: [2478,5267,734]
@@ -108,9 +124,24 @@ $(document).ready(function () {
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          plugins: {
+            doughnutlabel: {
+              labels: [
+                {
+                  text: 'D사',
+                  font: {
+                    size: '16',
+                  },
+                },
+              ],
+            },
+          },
         }
-    });
-  }
+      });
+    }
 });
 
 
