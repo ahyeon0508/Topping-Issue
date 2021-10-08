@@ -75,9 +75,9 @@
         {% for main_title, sub_title in newsData.items() %}
         <div class="content">
             <div class="news-title">
-                <div class="main-news">{{ main_title }}</div>
-                {% for title in sub_title %}
-                    <div class="sub-news">{{ title }}</div>
+                <div class="main-news" OnClick="location.href = '{{ sub_title[1][0] }}'">{{ main_title }}</div>
+                {% for i in range(sub_title[0] | length) %}
+                    <div class="sub-news" OnClick="location.href = '{{ sub_title[1][i+1] }}'">{{ sub_title[0][i] }}</div>
                 {% endfor %}
             </div>
             <div class="news-reaction-chart">

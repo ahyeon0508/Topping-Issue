@@ -68,12 +68,12 @@ button.setting-button:focus{
 
 .content{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
 }
 
 /* news-title */
 .content{
-    height: 300px;
+    height: 210px;
 }
 
 .news-title{
@@ -81,7 +81,9 @@ button.setting-button:focus{
 }
 
 .main-news{
-    font-size: 20px;
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 15px;
 }
 
 .sub-news{
@@ -105,9 +107,9 @@ button.setting-button:focus{
 }
 
 .naver-chart{
-    height: 200px;
+    width: 250px;
 }
 
 .daum-chart{
-    height: 200px;
+    width: 250px;
 }

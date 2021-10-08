@@ -8,18 +8,20 @@ $(document).ready(function (){
 });
 
 // 기간별 토픽 차트
+var keyword = [['관련어1', '관련어2'], ['관련어3', '관련어4']]
+
 $(document).ready(function () {
   new Chart(document.getElementById("term-topic-chart"), {
     type: 'line',
     data: {
 			labels: [
-				'data1',
-				'',
-				'',
-				'data4',
-				'',
-				'',
-				'data7'
+				'2021-04-24',
+				'2021-04-25',
+				'2021-04-26',
+				'2021-04-27',
+				'2021-04-28',
+				'2021-04-29',
+				'2021-04-30'
 			],
 			datasets: [{
 				label: 'My First dataset',
@@ -60,10 +62,15 @@ $(document).ready(function () {
       legend: {
         display: false
       },
+      title: {
+        display: true,
+        text: '2021-04-24 ~ 2021-04-30',
+        position: 'bottom',
+      },
       scales: {
         xAxes: [{
           ticks: {
-            fontSize: 11
+            display: false
           },
           gridLines: {
             display:false,
@@ -72,6 +79,13 @@ $(document).ready(function () {
         yAxes: [{
           display: false
         }]
+      },
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem, data) {
+            return data.datasets[tooltipItem.datasetIndex].label + ' : ' + keyword[tooltipItem.datasetIndex]
+          }
+        }
       }
     }
   });
@@ -104,6 +118,7 @@ $(document).ready(function () {
                 text: 'N사',
                 font: {
                   size: '16',
+                  weight: 'bold'
                 },
               },
             ],
@@ -134,6 +149,7 @@ $(document).ready(function () {
                   text: 'D사',
                   font: {
                     size: '16',
+                    weight: 'bold'
                   },
                 },
               ],
