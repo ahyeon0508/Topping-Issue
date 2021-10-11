@@ -12,29 +12,33 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="title">
-            <h1 class="main-title">Topping Issue</h1>
+    <form action="news" method="get">
+        <div class="container">
+            <div class="title">
+                <h1 class="main-title">Topping Issue</h1>
+            </div>
+            <div class="select_box">
+                <div class="main_category_box">
+                    <label for="category">대분류</label>
+                    <select id="main-category">
+                        <option value="정치">정치</option>
+                        <option value="경제">경제</option>
+                        <option value="사회">사회</option>
+                        <option value="세계">세계</option>
+                        <option value="IT/과학">IT/과학</option>
+                    </select>
+                </div>
+                <div class="sub_category_box">
+                    <label for="category">중분류</label>
+                    <select id="sub-category" name="subCategory">
+                    </select>
+                </div>
+                <div class="search">
+                    <button type="submit" class="search-button">검색</button>
+                </div>
+            </div>
         </div>
-        <div class="select_box">
-            <div class="main_category_box">
-                <label for="category">대분류</label>
-                <select id="main-category">
-                    <option value="학과">학과</option>
-                    <option value="테마">테마</option>
-                </select>
-            </div>
-            <div class="sub_category_box">
-                <label for="category">중분류</label>
-                <select id="sub-category">
-                    <option value="">데이터 받기</option>
-                </select>
-            </div>
-            <div class="search">
-                <button type="button" class="search-button">검색</button>
-            </div>
-        </div>
-    </div>
+    </form>
 </body>
 
 </html>
