@@ -14,6 +14,7 @@ $(document).ready(function () {
                 for (var key in data) {
                     if (main_category == key){
                         $("select#sub-category").find('option').remove();
+                        $("select#sub-category").append('<option hidden></option>');
                         for (var i = 0; i < data[key].length; i++){
                             $("select#sub-category").append('<option value="'+ data[key][i] + '">' + data[key][i] + '</option>');
                         }
