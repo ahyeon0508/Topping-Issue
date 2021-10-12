@@ -68,25 +68,19 @@ button.setting-button:focus{
 
 .content{
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 0.8fr 0.9fr;
+    font-family: 'Noto Sans KR', sans-serif;
+    height: 160px;
+    margin: 0 100px 0 100px;
 }
 
 /* news-title */
-.content{
-    height: 210px;
+.cluster-name{
+    font-size: 18px;
+    font-weight: 900;
 }
 
 .news-title{
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
-.main-news{
-    font-size: 16px;
-    font-weight: 900;
-    margin-bottom: 15px;
-}
-
-.sub-news{
     font-size: 14px;
     margin-top: 5px;
 }
@@ -111,5 +105,13 @@ button.setting-button:focus{
 }
 
 .daum-chart{
+    margin-left: -20px;
     width: 250px;
+}
+
+.contour{
+    width: 1000px;
+    color: rgb(221, 221, 221);
+    size: 30;
+    margin-bottom: 50px;
 }

@@ -27,8 +27,9 @@ def news():
     N_sentimentData = []
     D_sentimentData = []
 
-    for i in range(0, len(news_df)): # 1로 수정하기
-        newsData[news_df['Title'][i][0]] = [news_df['Title'][i][1:4], news_df['Link'][i][0:4]]
+    for i in range(0, len(news_df)):
+        mainClusterName = i
+        newsData[mainClusterName] = [news_df['Title'][i][0:3], news_df['Link'][i][0:3]]
         N_sentimentData.append([news_df['N_Good'][i], news_df['N_Bad'][i], news_df['N_Neut'][i]])
         D_sentimentData.append([news_df['D_Good'][i], news_df['D_Bad'][i], news_df['D_Neut'][i]])
 
