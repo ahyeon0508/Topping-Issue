@@ -102,7 +102,7 @@ $(document).ready(function () {
         labels: ['긍정', '부정', '중립'],
         datasets: [{
           backgroundColor: ["#DEF2F3", "#F1B6AF","#EAE6E6"],
-          data: [2478,5267,734]
+          data: JSON.parse(N_sentimentData)[i]
         }]
       },
       options: {
@@ -133,7 +133,7 @@ $(document).ready(function () {
           labels: ['긍정', '부정', '중립'],
           datasets: [{
             backgroundColor: ["#DEF2F3", "#F1B6AF","#EAE6E6"],
-            data: [2478,5267,734]
+            data: JSON.parse(D_sentimentData)[i]
           }]
         },
         options: {
@@ -157,7 +157,7 @@ $(document).ready(function () {
           },
         }
       });
-    }
+  }
 });
 
 

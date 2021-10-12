@@ -96,9 +96,9 @@
         {% endfor %}
     </div>
     <script>
-        console.log({{ sentimentData | tojson | safe }})
+        var N_sentimentData = {{ N_sentimentData | tojson | safe }};
+        var D_sentimentData = {{ D_sentimentData | tojson | safe }};
     </script>
     <script src="{{ url_for('static', filename='js/news.js') }}"></script>
-
 </body>
 </html>
