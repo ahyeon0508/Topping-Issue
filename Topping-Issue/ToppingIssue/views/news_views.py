@@ -12,7 +12,7 @@ def news():
     
     with sql.connect("ToppingIssue/ToppingIssue.db") as conn:
         cur = conn.cursor()
-        cur.execute("SELECT * FROM news_data_" + str(categoryDic(selectCategory)))
+        cur.execute("SELECT * FROM news_data_" + str(selectCategory))
         rows = cur.fetchall()
         cols = [column[0] for column in cur.description]
         news_df = pd.DataFrame.from_records(data=rows, columns=cols)
