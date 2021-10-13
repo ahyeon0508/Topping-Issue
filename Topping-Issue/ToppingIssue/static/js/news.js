@@ -96,41 +96,136 @@ var section = document.getElementsByClassName("news-reaction-chart");
 
 $(document).ready(function () {
   for(var i = 0; i < section.length; i++){
-    new Chart(document.getElementsByClassName("naver-chart")[i], {
-      type: 'doughnut',
-      data: {
-        labels: ['긍정', '부정', '중립'],
-        datasets: [{
-          backgroundColor: ["#DEF2F3", "#F1B6AF","#EAE6E6"],
-          data: JSON.parse(N_sentimentData)[i]
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        legend: {
-          display: false
-        },
-        plugins: {
-          doughnutlabel: {
-            labels: [
-              {
-                text: 'N사',
-                font: {
-                  size: '16',
-                  weight: 'bold'
-                },
-              },
-            ],
-          },
-        },
-      }
-    });
-
-    new Chart(document.getElementsByClassName("daum-chart")[i], {
+    if (JSON.stringify(JSON.parse(N_sentimentData)[i]) == JSON.stringify([0, 0, 0])){
+      new Chart(document.getElementsByClassName("naver-chart")[i], {
         type: 'doughnut',
         data: {
-          labels: ['긍정', '부정', '중립'],
+          labels: ['긍정', '부정', '판별불가'],
+          datasets: [{
+            backgroundColor: ["#DEF2F3", "#F1B6AF","#EAE6E6"],
+            data: JSON.parse(N_sentimentData)[i]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          plugins: {
+            doughnutlabel: {
+              labels: [
+                {
+                  text: 'N사',
+                  font: {
+                    size: '36',
+                    weight: 'bold'
+                  },
+                },
+                {
+                  text: '- 관련 댓글이',
+                  font: {
+                    size: '18',
+                    weight: 'bold'
+                  },
+                },
+                {
+                  text: '존재하지 않습니다 -',
+                  font: {
+                    size: '18',
+                    weight: 'bold'
+                  },
+                },
+              ],
+            },
+          },
+        }
+      });
+    }
+    else{
+      new Chart(document.getElementsByClassName("naver-chart")[i], {
+        type: 'doughnut',
+        data: {
+          labels: ['긍정', '부정', '판별불가'],
+          datasets: [{
+            backgroundColor: ["#DEF2F3", "#F1B6AF","#EAE6E6"],
+            data: JSON.parse(N_sentimentData)[i]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          plugins: {
+            doughnutlabel: {
+              labels: [
+                {
+                  text: 'N사',
+                  font: {
+                    size: '16',
+                    weight: 'bold'
+                  },
+                },
+              ],
+            },
+          },
+        }
+      });
+    }
+    
+    if (JSON.stringify(JSON.parse(D_sentimentData)[i]) == JSON.stringify([0, 0, 0])){
+      new Chart(document.getElementsByClassName("daum-chart")[i], {
+        type: 'doughnut',
+        data: {
+          labels: ['긍정', '부정', '판별불가'],
+          datasets: [{
+            backgroundColor: ["#DEF2F3", "#F1B6AF","#EAE6E6"],
+            data: JSON.parse(D_sentimentData)[i]
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          plugins: {
+            doughnutlabel: {
+              labels: [
+                {
+                  text: 'D사',
+                  font: {
+                    size: '36',
+                    weight: 'bold'
+                  },
+                },
+                {
+                  text: '- 관련 댓글이',
+                  font: {
+                    size: '18',
+                    weight: 'bold'
+                  },
+                },
+                {
+                  text: '존재하지 않습니다 -',
+                  font: {
+                    size: '18',
+                    weight: 'bold'
+                  },
+                },
+              ],
+            },
+          },
+        }
+      });
+    }
+    else{
+      new Chart(document.getElementsByClassName("daum-chart")[i], {
+        type: 'doughnut',
+        data: {
+          labels: ['긍정', '부정', '판별불가'],
           datasets: [{
             backgroundColor: ["#DEF2F3", "#F1B6AF","#EAE6E6"],
             data: JSON.parse(D_sentimentData)[i]
@@ -157,6 +252,8 @@ $(document).ready(function () {
           },
         }
       });
+    }
+    
   }
 });
 
