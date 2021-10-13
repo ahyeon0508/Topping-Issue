@@ -36,39 +36,41 @@
             <h1 class="main-title">Topping Issue</h1>
         </div>
         <button class="setting-button">기사 설정</button>
-        <div class="search-setting">
-            <div id="date-setting">
-                <span>* 조회 기간을 선택해주세요 *</span>
-                <div class="date">
-                    <span>시작일자 : </span>
-                    <input type="date" id="start-date">
+        <form action="news" method="get">
+            <div class="search-setting">
+                <div id="date-setting">
+                    <span>* 조회 기간을 선택해주세요 *</span>
+                    <div class="date">
+                        <span>시작일자 : </span>
+                        <input type="date" id="start-date" name="startDate">
+                    </div>
+                    <div class="date">
+                        <span>종료일자 : </span>
+                        <input type="date" id="end-date" name="endDate">
+                    </div>
                 </div>
-                <div class="date">
-                    <span>종료일자 : </span>
-                    <input type="date" id="end-date">
+                <div id="interest-setting">
+                    <p>* 가중치를 선택해주세요 *</p>
+                    <span>언급량</span>
+                    <select class="interest-prop-ap" name="ap">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <span>반응</span>
+                    <select class="interest-prop-cp" name="up">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="submit" class="setting-button" id="complete-button">완료</button>
                 </div>
             </div>
-            <div id="interest-setting">
-                <p>* 가중치를 선택해주세요 *</p>
-                <span>언급량</span>
-                <select class="interest-prop-ap">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <span>반응</span>
-                <select class="interest-prop-cp">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <button class="setting-button" id="complete-button">완료</button>
-            </div>
-        </div>
+        </form>
         <div class="term-topic">
             <canvas id="term-topic-chart"></canvas>
         </div>

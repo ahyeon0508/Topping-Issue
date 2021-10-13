@@ -5,6 +5,8 @@ conn = sqlite3.connect('ToppingIssue.db')
 with open('0501-0503_final(10002).bin', 'rb') as f:
     news_df = pickle.load(f)
 
+news_df['DATE'] = news_df['DATE'].dt.strftime("%Y-%m-%d")
+
 news_df['Title'] = news_df['Title'].astype('str')
 news_df['Title'] = news_df['Title'].str.replace("'", "\'")
 news_df['Link'] = news_df['Link'].astype('str')
