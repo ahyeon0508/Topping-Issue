@@ -16,7 +16,7 @@ $(document).ready(function () {
                         $("select#sub-category").find('option').remove();
                         $("select#sub-category").append('<option hidden></option>');
                         for (var i = 0; i < data[key].length; i++){
-                            $("select#sub-category").append('<option value="'+ data[key][i] + '">' + data[key][i] + '</option>');
+                            $("select#sub-category").append('<option value="'+ data[key][i][1] + '">' + data[key][i][0] + '</option>');
                         }
                         break;
                     }

@@ -9,19 +9,17 @@ from numpyencoder import NumpyEncoder
 @app.route('/news', methods = ['GET'])
 def news():
     selectCategory = request.args.get('subCategory')
-
+    
     with sql.connect("ToppingIssue/ToppingIssue.db") as conn:
         cur = conn.cursor()
-        cur.execute("SELECT * FROM news_data")
-
+        cur.execute("SELECT * FROM news_data_" + str(categoryDic(selectCategory)))
         rows = cur.fetchall()
         cols = [column[0] for column in cur.description]
         news_df = pd.DataFrame.from_records(data=rows, columns=cols)
     conn.close()
 
-    news_df = news_df[news_df['Category'] == selectCategory]
-    news_df['Title'] = news_df['Title'].apply(lambda x: literal_eval(x.rstrip()))
-    news_df['Link'] = news_df['Link'].apply(lambda x: literal_eval(str(x)))
+    news_df['Title'] = news_df['Title'].apply(lambda x: literal_eval(x))
+    news_df['Link'] = news_df['Link'].apply(lambda x: literal_eval(x))
 
     newsData = {}
     N_sentimentData = []
@@ -33,5 +31,5 @@ def news():
         N_sentimentData.append([news_df['N_Good'][i], news_df['N_Bad'][i], news_df['N_Neut'][i]])
         D_sentimentData.append([news_df['D_Good'][i], news_df['D_Bad'][i], news_df['D_Neut'][i]])
 
-    return render_template("news.html", selectCategory=selectCategory, newsData=newsData,
+    return render_template("news.html", newsData=newsData, subCategory='하이',
         N_sentimentData=json.dumps(N_sentimentData, cls=NumpyEncoder), D_sentimentData=json.dumps(D_sentimentData, cls=NumpyEncoder))
