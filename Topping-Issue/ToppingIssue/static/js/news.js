@@ -1,12 +1,3 @@
-// user-setting
-$(document).ready(function () {
-  $(".setting-button").click(function () {
-    $("#date-setting").toggle();
-    $("#interest-setting").toggle();
-    $("#complete-button").toggle();
-  });
-});
-
 // 기간별 토픽 차트
 var termChartDate = JSON.parse(termChartDate);
 var termChartsubData = JSON.parse(termChartsubData);

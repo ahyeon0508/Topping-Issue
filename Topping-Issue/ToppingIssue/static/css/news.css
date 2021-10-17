@@ -8,53 +8,21 @@
 }
 
 /* user-setting */
-.setting-button{
-    width: 100px;
+#complete-button{
+    width: 80px;
+    height: 30px;
     background-color: #FFFFFF;
     color: #7CA3A3;
     border: 1px solid #A09D9D;
     border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-button.setting-button:focus{ 	
-    border: none;
-    outline: 1px solid #A09D9D;
 }
 
 .search-setting{
     font-family: 'Noto Sans KR', sans-serif;
     display: grid;
-    grid-template-columns: 0.25fr 0.25fr;
+    grid-template-columns: 180px 180px 70px 70px 80px;
     margin-bottom: 10px;
-}
-
-#end-date{
-    margin-top: 7px;
-}
-
-#date-setting, #interest-setting, #complete-button{
-    display: none;
-}
-
-#date-button, #interest-button{
-    background-color: #ffffff;
-    border-radius: 10px;
-    border-color: #9EC8C8;
-}
-
-#interest-setting p{
-    margin-bottom: -2px;
-}
-
-.interest-prop-ap, .interest-prop-cp{
-    width: 30px;
-    height: 30px;
-}
-
-#complete-button{
-    width: 50px;
-    margin-left: 150px;
+    align-items: end;
 }
 
 /* title */
