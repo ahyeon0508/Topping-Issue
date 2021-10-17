@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>뉴스 추천</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/bars-1to10.css">
@@ -14,22 +16,23 @@
     <script src="{{ url_for('static', filename='js/jquery.barrating.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/chartjs-plugin-doughnutlabel.min.js') }}"></script>
     <script type="text/javascript">
-    $(function() {
-        $('.interest-prop-ap').barrating({
-            theme: 'bars-1to10',
-            onSelect: function(value, text, event){
-                console.log(value)
-            }
+        $(function () {
+            $('.interest-prop-ap').barrating({
+                theme: 'bars-1to10',
+                onSelect: function (value, text, event) {
+                    console.log(value)
+                }
+            });
+            $('.interest-prop-cp').barrating({
+                theme: 'bars-1to10',
+                onSelect: function (value, text, event) {
+                    console.log(value)
+                }
+            });
         });
-        $('.interest-prop-cp').barrating({
-            theme: 'bars-1to10',
-            onSelect: function(value, text, event){
-                console.log(value)
-            }
-        });
-    });
     </script>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -71,37 +74,29 @@
                 </div>
             </div>
         </form>
+        <hr class="contour">
         <div class="term-topic">
             <canvas id="term-topic-chart"></canvas>
         </div>
-        {% for cluster_name, news_title in newsData.items() %}
-        <div class="content">
-            <div class="news-title">
-                <p class="cluster-name">{{ cluster_name }} </p>
-                {% for i in range(news_title[0] | length) %}
-                    <div class="news-title" OnClick="location.href = '{{ news_title[1][i] }}'">{{ news_title[0][i] }}</div>
-                {% endfor %}
-            </div>
-            <div class="news-reaction-chart">
-                <div class="naver-news-reaction">
-                    <div class="naver">
-                        <canvas class="naver-chart"></canvas>
-                    </div>
-                </div>
-                <div class="daum-news-reaction">
-                    <div class="daum">
-                        <canvas class="daum-chart"></canvas>
-                    </div>
-                </div>
-            </div>
+        <div class="top-news">
+            {% for i in range(newsName | length) %}
+            <div id="top-news-{{ i+1 }}">{{ i+1 }} . {{ newsName[i] }}</div>
+            {% endfor %}
         </div>
-        <hr class="contour">
-        {% endfor %}
+        <div class="content"></div>
     </div>
     <script>
+        var newsData = {{ newsData | tojson | safe }};
+        var subNewsData = {{ subNewsData | tojson | safe }};
+        var termChartData = {{ termChartData | tojson | safe }};
+        var termChartDate = {{ termChartDate | tojson | safe }};
+        var termChartsubData = {{ termChartsubData | tojson | safe }};
         var N_sentimentData = {{ N_sentimentData | tojson | safe }};
         var D_sentimentData = {{ D_sentimentData | tojson | safe }};
+        var N_sub_sentimentData = {{ N_sub_sentimentData | tojson | safe }};
+        var D_sub_sentimentData = {{ D_sub_sentimentData | tojson | safe }};
     </script>
     <script src="{{ url_for('static', filename='js/news.js') }}"></script>
 </body>
+
 </html>
