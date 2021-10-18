@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko-KR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>뉴스 추천</title>
+    <title>톺핑있슈(Topping Issue)</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/bars-1to10.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bars-1to10.css') }}">
     <script src="{{ url_for('static', filename='js/jquery.barrating.min.js') }}"></script>
@@ -36,7 +37,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="main-title">Topping Issue</h1>
+            <h1 class="main-title">톺핑있슈~</h1>
+            <h6 class="sub-title">- Topping Issue -</h6>
         </div>
         <form action="news" method="get">
             <div class="search-setting">
@@ -49,7 +51,7 @@
                     <input type="date" id="end-date" name="endDate">
                 </div>
                 <div class="ap">
-                    <span>언급량</span>
+                    <div class="attention-name" data-toggle="tooltip" title="이슈량에 반영될 언론사 기사 점수">언론사 주목도 : </div>
                     <select class="interest-prop-ap" name="ap">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -59,7 +61,7 @@
                     </select>
                 </div>
                 <div class="up">
-                    <span>반응</span>
+                    <div class="attention-name" data-toggle="tooltip" title="이슈량에 반영될 네티즌 반응 점수">네티즌 주목도 : </div>
                     <select class="interest-prop-cp" name="up">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -75,14 +77,17 @@
         </form>
         <hr class="contour">
         <div class="term-topic">
+            <p class="explain">< 기간 내 이슈 변화량 및 파생 주제 ></p>
             <canvas id="term-topic-chart"></canvas>
         </div>
+        <p class="explain">< 기간 내 이슈 랭킹 ></p>
         <div class="top-news">
             {% for i in range(newsName | length) %}
             <div id="top-news-{{ i+1 }}">{{ i+1 }} . {{ newsName[i] }}</div>
             {% endfor %}
         </div>
-        <div class="content"></div>
+        <div class="content"></span>
+        </div>
     </div>
     <script>
         var newsData = {{ newsData | tojson | safe }};

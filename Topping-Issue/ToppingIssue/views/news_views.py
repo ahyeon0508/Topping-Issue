@@ -33,10 +33,10 @@ def news():
 
     # default
     if startDate is None:
-        startDate = '2021-01-01'
+        startDate = '2021-08-01'
     
     if endDate is None:
-        endDate = '2021-01-07'
+        endDate = '2021-08-07'
     
     if ap is None:
         ap = 0.5

@@ -18,6 +18,14 @@
     text-shadow: 2px 2px 2px #999898;
 }
 
+.sub-title{
+    margin-top: -40px;
+    font-size: 18px;
+    color: gray;
+    text-align: center;
+    font-family: 'Gowun Batang', serif;
+}
+
 /* category box */
 div.select_box{
 	display: grid;

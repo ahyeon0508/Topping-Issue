@@ -1,3 +1,7 @@
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 // 기간별 토픽 차트
 var termChartDate = JSON.parse(termChartDate);
 var termChartsubData = JSON.parse(termChartsubData);
@@ -38,7 +42,6 @@ $(document).ready(function () {
       tooltips: {
         callbacks: {
           label: function (tooltipItem, data) {
-            console.log(termChartsubData[tooltipItem.index][tooltipItem.datasetIndex])
             return "[" + data.datasets[tooltipItem.datasetIndex].label + "]"
           },
           afterLabel: function (tooltipItem) {
@@ -89,7 +92,7 @@ function news_info(key){
 function sub_news_info(m){
   temp_html = '<div class=sub-word-buttons>';
   for (var i = 0; i < subNewsData[m][0].length; i++){
-    temp_html += '<button class="sub-word-button">' + subNewsData[m][0][i] + '</button>'
+    temp_html += '<button class="sub-word-button" data-toggle="tooltip" title="파생주제 ' + (i+1) + '등">' + subNewsData[m][0][i] + '</button>'
   }
   temp_html += '</div>'
   for (var i = 0; i < subNewsData[m][0].length; i++){
@@ -372,7 +375,7 @@ function sub_news_chart(i, j){
           doughnutlabel: {
             labels: [
               {
-                text: 'N사',
+                text: 'D사',
                 font: {
                   size: '36',
                   weight: 'bold'
@@ -468,6 +471,7 @@ $(document).ready(function () {
               $('.sub-news-keyword').eq(1).hide();
               $('.sub-news-keyword').eq(0).toggle();
               sub_news_chart(m-1, $(this).index())
+              $('[data-toggle="tooltip"]').tooltip();
             }
             else {
               $('.sub-news-keyword').eq(0).hide();

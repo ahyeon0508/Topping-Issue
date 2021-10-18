@@ -4,16 +4,16 @@
 }
 .br-theme-bars-1to10 .br-widget a {
   display: block;
-  width: 12px;
+  width: 20px;
   padding: 5px 0;
-  height: 30px;
+  height: 26px;
   float: left;
   background-color: #EEEFEF;
   text-align: center;
 }
 .br-theme-bars-1to10 .br-widget a.br-active,
 .br-theme-bars-1to10 .br-widget a.br-selected {
-  background-color: #7CA3A3;
+  background-color: #d5ecec;
 }
 .br-theme-bars-1to10 .br-widget .br-current-rating {
   display: None;
