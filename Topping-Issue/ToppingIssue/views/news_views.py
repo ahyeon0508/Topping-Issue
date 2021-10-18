@@ -1,10 +1,12 @@
 from ToppingIssue import app
-from flask import render_template, request, make_response
+from flask import render_template, request, session
 import sqlite3 as sql
 import pandas as pd
 from ast import literal_eval
 import json
 from numpyencoder import NumpyEncoder
+
+app.secret_key = 'category'
 
 def min_max(data):
     if len(data) == 1:
@@ -16,13 +18,12 @@ def min_max(data):
 @app.route('/news', methods = ['GET'])
 def news():
     selectCategory = request.args.get('subCategory')
-    resp = make_response("category storage")
 
-    if selectCategory is not None:
-        resp.set_cookie('selectCategory', selectCategory)
+    if 'selectCategory' in session:
+        selectCategory = session['selectCategory']
 
     else:
-        selectCategory = request.cookies.get('selectCategory')
+        session['selectCategory'] = selectCategory
 
     # 날짜, ap, dp
     startDate = request.args.get('startDate')
@@ -32,16 +33,19 @@ def news():
 
     # default
     if startDate is None:
-        startDate = '2021-05-01'
+        startDate = '2021-01-01'
     
     if endDate is None:
-        endDate = '2021-05-03'
+        endDate = '2021-01-07'
     
     if ap is None:
-        ap = 0.5 
+        ap = 0.5
 
     if up is None:
         up = 0.5
+
+    ap = float(ap) / (float(ap) + float(up))
+    up = float(up) / (float(ap) + float(up))
 
     # 날짜 설정(by 사용자)
     if startDate == endDate:
