@@ -19,9 +19,9 @@ def min_max(data):
 def news():
     selectCategory = request.args.get('subCategory')
 
-    if 'selectCategory' in session:
+    if selectCategory is None:
         selectCategory = session['selectCategory']
-
+    
     else:
         session['selectCategory'] = selectCategory
 
@@ -131,7 +131,7 @@ def news():
             N_sentiment_list.append(temp_N_sentiment[0])
             D_sentiment_list.append(temp_D_sentiment[0])
             N_sub_sentiment_list.append(temp_N_sub_sentiment[:2])
-            D_sub_sentiment_list.append(temp_N_sub_sentiment[:2])
+            D_sub_sentiment_list.append(temp_D_sub_sentiment[:2])
 
     # 기간에 따른 핵심 키워드 추출 기능
     termChartDate = pd.date_range(start = startDate, end = endDate).strftime("%Y-%m-%d").tolist()
